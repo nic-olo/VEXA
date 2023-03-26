@@ -6,6 +6,7 @@ import UserResponseCard from "../component/questionCards/UserResponseCard";
 import VideoCard from "../component/questionCards/VideoCard";
 import YesNoCard from "../component/questionCards/YesNoCard";
 import SelectionCard from "../component/questionCards/SelectionCard";
+import Layout from "../component/Layout";
 
 export type Video = {
   name: string;
@@ -232,36 +233,38 @@ export default function Chat() {
   }, [displayedFeedItems]);
 
   return (
-    <div className="flex flex-col outline w-full">
-      <div className="px-3 py-5 flex-grow">
-        {displayedFeedItems.map((item, i) => mapCard(item, i))}
-      </div>
+    <Layout>
+      <div className="flex flex-col w-full">
+        <div className="px-3 py-5 flex-grow">
+          {displayedFeedItems.map((item, i) => mapCard(item, i))}
+        </div>
 
-      <div
-        ref={chatInputRef}
-        className="flex justify-center
-         items-center bg-base-300 px-5 py-3 gap-3 w-full outline"
-      >
-        <textarea
-          rows={1}
-          value={input}
-          className="textarea textarea-bordered textarea-sm w-full flex-grow outline"
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              addResponse();
-            }
-          }}
-          disabled={!myTurn}
-        ></textarea>
-        <button
-          className="btn btn-sm flex-grow-0"
-          disabled={!myTurn}
-          onClick={addResponse}
+        <div
+          ref={chatInputRef}
+          className="flex justify-center
+        items-center bg-base-300 px-5 py-3 gap-3 w-full"
         >
-          <span>Add</span>
-        </button>
+          <textarea
+            rows={1}
+            value={input}
+            className="textarea textarea-bordered textarea-sm w-full flex-grow outline"
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                addResponse();
+              }
+            }}
+            disabled={!myTurn}
+          ></textarea>
+          <button
+            className="btn btn-sm flex-grow-0"
+            disabled={!myTurn}
+            onClick={addResponse}
+          >
+            <span>Add</span>
+          </button>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }

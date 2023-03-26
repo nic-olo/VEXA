@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <div className="navbar bg-base-200">
-      <a className="btn btn-ghost normal-case text-xl">VEXA</a>
+      <Link to="/">VEXA</Link>
     </div>
   );
 }
