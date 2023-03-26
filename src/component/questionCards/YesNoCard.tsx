@@ -2,16 +2,11 @@ import React from "react";
 
 interface YesNoCardProps {
   question: string;
+  clickYes: () => void;
+  clickNo: () => void;
 }
 
-export default function YesNoCard({ question }: YesNoCardProps) {
-  const clickYes = () => {
-    console.log("Yes");
-  };
-
-  const clickNo = () => {
-    console.log("No");
-  };
+export default function YesNoCard({ question, clickYes, clickNo }: YesNoCardProps) {
 
   return (
     <div className="chat chat-start text-sm sm:text-md my-2">
