@@ -17,6 +17,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./pwa-examples/js13kpwa/sw.js");
+  }
+  
   return (
     <Layout>
       <RouterProvider router={router} />
