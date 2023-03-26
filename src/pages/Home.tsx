@@ -9,10 +9,9 @@ export default function Home() {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold my-5">Medical Checkup</h1>
+            <h1 className="text-5xl font-bold my-5">Booking an appointment</h1>
             <p className="mb-5">
-              Answer a few questions, do some checkups and we'll help you find
-              the right doctor for
+              Good evening Thomas, this is VEXA. Lets help you book a medical appointment.
             </p>
             <Link to="chat">
               <button className="btn btn-primary">Start</button>
