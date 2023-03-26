@@ -15,7 +15,7 @@ export default function VideoCard({
 }: VideoCardProps) {
   return (
     <div className="chat chat-start text-sm sm:text-md my-2">
-      <div className="chat-bubble p-5">
+      <div className="chat-bubble chat-bubble-primary p-5">
         <h2 className="card-title mb-3">{description}</h2>
         <div>
           <iframe

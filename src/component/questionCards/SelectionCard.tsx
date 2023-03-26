@@ -13,13 +13,13 @@ export default function SelectionCard({
 }: SelectionCardProps) {
   return (
     <div className="chat chat-start text-sm sm:text-md my-2">
-      <div className="chat-bubble p-5">
+      <div className="chat-bubble chat-bubble-primary p-5">
         <h2 className="card-title">{question}</h2>
         <div className="mt-3">
           {options.map((option, i) => (
             <button
               key={i}
-              className="btn btn-sm btn-secondary mr-3"
+              className="btn btn-sm mr-3"
               onClick={() => selectChoice(option)}
             >
               {option}

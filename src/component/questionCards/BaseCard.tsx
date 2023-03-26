@@ -7,7 +7,7 @@ export interface BaseCardProps {
 export default function BaseCard({ message }: BaseCardProps) {
   return (
     <div className="chat chat-start text-sm sm:text-md my-2">
-      <div className="chat-bubble p-5">
+      <div className="chat-bubble chat-bubble-primary p-5">
         <h2 className="card-title">{message}</h2>
       </div>
     </div>

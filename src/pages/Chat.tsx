@@ -34,7 +34,7 @@ export type FeedItem = {
 const questions: FeedItem[] = [
   {
     question:
-      "Good evening Thomas. Welcome to VEXA. We will ask you a few questions and perform a few simple health checks before you see the physician?",
+      "Good evening Thomas. Welcome to VEXA. We will ask you a few questions and perform some simple health checks before you see the physician. This will help us expedite your care.",
     type: "base",
   },
   {
@@ -42,7 +42,7 @@ const questions: FeedItem[] = [
     type: "options",
     options: ["Me", "Someone else"],
   },
-  { question: "How can we help you today?", type: "text" },
+  { question: "How can I help you today?", type: "text" },
   { question: "Where is the pain exactly?", type: "text" },
   { question: "When did the pain first start?", type: "text" },
   { question: "How does the pain feel like?", type: "text" },
@@ -52,20 +52,28 @@ const questions: FeedItem[] = [
   },
   {
     question:
-      "On a scale of 0 to 10, how severe is the pain if 0 is being painless and 10 is the worst pain you have ever experienced?",
+      "On a scale of 0 to 10, how severe is the pain if 0 is completely painless and 10 is the worst pain you have ever experienced?",
     type: "text",
   },
-  { question: "Are you feeling fevershin?", type: "yesNo" },
-  { question: "Do you have yellowing skin?", type: "yesNo" },
-  { question: "Are you feeling fatigued?", type: "yesNo" },
-  { question: "Are you feeling confused?", type: "yesNo" },
+  { question: "Are you feeling feverish or warm?", type: "yesNo" },
   {
-    question: "Do a Scleral Icterus test, here is how to do it",
-    url: "https://www.youtube.com/embed/4s217pWPMNI?autoplay=1",
+    question: "Are you feeling nauseous?",
+    type: "yesNo",
+  },
+  { question: "Have you vomited recently?", type: "yesNo" },
+  {
+    question: "Have you noticed any yellowing of your skin or eyes recently?",
+    type: "yesNo",
+  },
+  {
+    question:
+      "Gently pull down your lower eyelids. Are the whites of your eyes abnormally yellow?",
+    url: "https://www.youtube.com/embed/awGHJdrLvhU?autoplay=1",
     type: "video",
   },
   {
-    question: "Do an Abdominal Palpation test, here is how to do it",
+    question:
+      "Press firmly below your ribcage into your tummy on the right-hand side. Does the pain become significantly worse?",
     url: "https://www.youtube.com/embed/SooocPBpNaU?autoplay=1",
     type: "video",
   },
@@ -75,7 +83,8 @@ export default function Chat() {
   const [myTurn, setMyTurn] = useState(false);
   const [feedItemCounter, setFeedItemCounter] = useState(0);
   const [displayedFeedItems, setDisplayedFeedItems] = useState<FeedItem[]>([]);
-  const chatInputRef = useRef<HTMLDivElement>(null);
+  const chatInputRef = useRef<HTMLInputElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
 
   const addResponse = () => {
@@ -228,15 +237,15 @@ export default function Chat() {
   }, [feedItemCounter]);
 
   useEffect(() => {
-    if (chatInputRef.current) {
-      chatInputRef.current.scrollTop = chatInputRef.current.scrollHeight;
-    }
+    setTimeout(() => {
+      chatInputRef.current?.focus();
+    }, 1000);
   }, [displayedFeedItems]);
 
   return (
     <Layout>
-      <div className="flex flex-col w-full">
-        <div className="px-3 py-5 flex-grow">
+      <div className="flex flex-col w-full" ref={chatContainerRef}>
+        <div className="px-3 py-5 flex-grow flex-nowrap overflow-y-scroll">
           {displayedFeedItems.map((item, i) => mapCard(item, i))}
         </div>
 
@@ -256,6 +265,7 @@ export default function Chat() {
               }
             }}
             disabled={!myTurn}
+            autoFocus
           ></textarea>
           <button
             className="btn btn-sm flex-grow-0"
