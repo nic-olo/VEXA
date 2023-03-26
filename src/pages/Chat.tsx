@@ -7,6 +7,7 @@ import VideoCard from "../component/questionCards/VideoCard";
 import YesNoCard from "../component/questionCards/YesNoCard";
 import SelectionCard from "../component/questionCards/SelectionCard";
 import Layout from "../component/Layout";
+import {AiOutlineSend} from "react-icons/ai";
 
 export type Video = {
   name: string;
@@ -223,7 +224,7 @@ export default function Chat() {
         };
         setDisplayedFeedItems([...displayedFeedItems, newFeedItem]);
       }
-    }, 1000);
+    }, 1200);
   }, [feedItemCounter]);
 
   useEffect(() => {
@@ -261,7 +262,7 @@ export default function Chat() {
             disabled={!myTurn}
             onClick={addResponse}
           >
-            <span>Add</span>
+            <span><AiOutlineSend /></span>
           </button>
         </div>
       </div>
