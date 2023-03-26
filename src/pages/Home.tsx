@@ -1,23 +1,16 @@
 import React from "react";
-import Chat from "./Chat";
 import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div
-      className="hero min-h-screen"
-      style={{
-        backgroundImage: `url("/images/stock/photo-1507358522600-9f71e620c44e.jpg")`,
-      }}
-    >
+    <div className="hero flex-1">
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hi</h1>
+          <h1 className="text-5xl font-bold my-5">Medical Checkup</h1>
           <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Answer a few questions, do some checkups and we'll help you find the
+            right doctor for
           </p>
           <Link to="chat">
             <button className="btn btn-primary">Start</button>

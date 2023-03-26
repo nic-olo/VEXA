@@ -10,8 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow outline">{children}</main>
-      <button />
+      <main className="flex-1 flex">{children}</main>
       <Footer />
     </div>
   );
