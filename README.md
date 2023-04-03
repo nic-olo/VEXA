@@ -3,7 +3,7 @@
 ## What is this repo about?
 
 This repo consists of our simple prototype for the National Medtech Foundation 'Hackathon', we worked on a project in the telemedicine stream.
-Our idea was to create ```VEXA (Virtual Examinations and Assessments)```, a "if this then that" preconsulting tool that provides simple instructions for patients to perform simple checks to hopefully aid and speed up the telemedicine consult.
+Our idea was to create ```VEXA (Virtual EXaminations and Assessments)```, a "if this then that" preconsulting tool that provides simple instructions for patients to perform simple checks to hopefully aid and speed up the telemedicine consult.
 
 App is deployed here: https://dia-ndwbv5pji-nic-olo.vercel.app/
 
