@@ -1,4 +1,4 @@
-# DiaLog
+# VEXA
 
 ## What is this repo about?
 
